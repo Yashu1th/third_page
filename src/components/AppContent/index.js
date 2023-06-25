@@ -147,12 +147,14 @@ function AppContent(){
         {
           title: 'QuoteName',
           dataIndex: 'QuoteName',
+          // eslint-disable-next-line
           render:(text)=><a>{text}</a>,
           key: 'QuoteName',
         },
         {
           title: 'OpportunityName',
           dataIndex: 'OpportunityName',
+          // eslint-disable-next-line
           render:(text)=><a>{text}</a>,
           key: 'OpportunityName',
         },
