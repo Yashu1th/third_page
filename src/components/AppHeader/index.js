@@ -24,7 +24,7 @@ function AppHeader(){
             <Typography.Title level={5} style={{margin:0,borderRight:"1px solid #a0aca0",color:"#a0aca0"}} >
             <ApartmentOutlined />Bulk Enrollment &nbsp;&nbsp; <DownOutlined style={{fontSize:10}}/>&nbsp;&nbsp;<CloseOutlined style={{fontSize:10}}/>
             </Typography.Title>
-            <Typography.Title level={5} style={{margin:0,borderRight:"1px solid #a0aca0",color:"#a0aca0"}} >
+            <Typography.Title level={5} style={{margin:0,borderRight:"1px solid #a0aca0",color:"#a0aca0",borderTop:"2px solid blue",backgroundColor:"#ccd9ff"}} >
             <ApartmentOutlined />Recently viewed &nbsp;&nbsp; <DownOutlined style={{fontSize:10}}/>&nbsp;&nbsp;<CloseOutlined style={{fontSize:10}}/>
             </Typography.Title>
             </Space>
