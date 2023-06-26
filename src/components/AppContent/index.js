@@ -1,12 +1,14 @@
 // import React from "react";
 import {Card,Table,Typography,Space,Button,Input} from 'antd';
-import {CaretDownOutlined, DownSquareOutlined,TagOutlined,SearchOutlined,CalendarOutlined,SettingOutlined,ReloadOutlined,PieChartOutlined,EditOutlined,FilterOutlined } from '@ant-design/icons';
+import {CaretDownOutlined, DownSquareOutlined,TagOutlined,CalendarOutlined,SettingOutlined,ReloadOutlined,PieChartOutlined,EditOutlined,FilterOutlined, SearchOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 function AppContent(){
-    const dataSource = [
+  const [searchedText, setSearchedText] = useState("")
+  const dataSource = [
         {
           key: '1',
-          QuoteName: 'Multi Auto',
-          OpportunityName : 'Opp_1',
+          QuoteName: 'Ankit',
+          OpportunityName : 'USA',
           Syncing: '',
           
           ExpirationDate:'',
@@ -16,8 +18,8 @@ function AppContent(){
         },
         {
             key: '2',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'Opp_1',
+            QuoteName: 'Balu',
+            OpportunityName : 'Canada',
             Syncing: '',
             
             ExpirationDate:'',
@@ -27,8 +29,8 @@ function AppContent(){
         },
         {
             key: '3',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'Opp_1',
+            QuoteName: 'Charan',
+            OpportunityName : 'Australia',
             Syncing: '',
             
             ExpirationDate:'',
@@ -38,8 +40,8 @@ function AppContent(){
         },
         {
             key: '4',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'RRF_testOpp1',
+            QuoteName: 'danush',
+            OpportunityName : 'India',
             Syncing: '',
             
             ExpirationDate:'',
@@ -49,8 +51,8 @@ function AppContent(){
         },
         {
             key: '5',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'RRF_testOpp1',
+            QuoteName: 'Esha',
+            OpportunityName : 'newzland',
             Syncing: '',
             
             ExpirationDate:'',
@@ -60,8 +62,8 @@ function AppContent(){
         },
         {
             key: '6',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'RRF_testOpp1',
+            QuoteName: 'farzudin',
+            OpportunityName : 'Pakisthan',
             Syncing: '',
             
             ExpirationDate:'',
@@ -71,8 +73,8 @@ function AppContent(){
         },
         {
             key: '7',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'RRF_testOpp1',
+            QuoteName: 'Grishma',
+            OpportunityName : 'somalia',
             Syncing: '',
             
             ExpirationDate:'',
@@ -82,8 +84,8 @@ function AppContent(){
         },
         {
             key: '8',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'RRF_testOpp1',
+            QuoteName: 'Hasini',
+            OpportunityName : 'India',
             Syncing: '',
             
             ExpirationDate:'',
@@ -93,8 +95,8 @@ function AppContent(){
         },
         {
             key: '9',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'RRF_testOpp1',
+            QuoteName: 'Irfan',
+            OpportunityName : 'Iraq',
             Syncing: '',
             
             ExpirationDate:'',
@@ -104,8 +106,8 @@ function AppContent(){
         },
         {
             key: '10',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'RRF_testOpp1',
+            QuoteName: 'javeed',
+            OpportunityName : 'Germany',
             Syncing: '',
             
             ExpirationDate:'',
@@ -115,8 +117,8 @@ function AppContent(){
         },
         {
             key: '11',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'RRF_testOpp1',
+            QuoteName: 'khaleel',
+            OpportunityName : 'Iran',
             Syncing: '',
             
             ExpirationDate:'',
@@ -126,8 +128,8 @@ function AppContent(){
         },
         {
             key: '12',
-            QuoteName: 'Multi Auto',
-            OpportunityName : 'Opp_1',
+            QuoteName: 'Laxman',
+            OpportunityName : 'India',
             Syncing: '',
             
             ExpirationDate:'',
@@ -150,6 +152,15 @@ function AppContent(){
           // eslint-disable-next-line
           render:(text)=><a>{text}</a>,
           key: 'QuoteName',
+          filteredValue:[searchedText],
+          onFilter:(value,record)=>{
+            return (
+            String(record.QuoteName).toLowerCase().includes(value.toLowerCase())||
+            String(record.OpportunityName).toLowerCase().includes(value.toLowerCase())||
+            String(record.Subtotal).toLowerCase().includes(value.toLowerCase())||
+            String(record.TotalPrice).toLowerCase().includes(value.toLowerCase())
+            );
+          },
         },
         {
           title: 'OpportunityName',
@@ -157,6 +168,7 @@ function AppContent(){
           // eslint-disable-next-line
           render:(text)=><a>{text}</a>,
           key: 'OpportunityName',
+          
         },
         {
           title: 'Syncing',
@@ -203,7 +215,10 @@ function AppContent(){
             </div>
             <div>
             <Space>
-            <Input addonBefore={<SearchOutlined/>} placeholder="Seach this list....." />
+            <Input addonBefore={<SearchOutlined/>}  placeholder="Seach this list....." 
+            onSearch={(value)=>{setSearchedText(value);}}
+            onChange={(e)=>{setSearchedText(e.target.value);}}
+            />
             <Button icon={<SettingOutlined />}></Button>
             <Button icon={<CalendarOutlined />}></Button>
             <Button icon={<ReloadOutlined />}></Button>
